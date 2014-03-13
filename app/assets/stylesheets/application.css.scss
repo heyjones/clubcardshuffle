@@ -1,0 +1,29 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *=	require bootstrap
+ *= require_self
+ *= require_tree .
+ */
+.jumbotron{
+//	background-image: url(image_path('felt.png'));
+	background-image: radial-gradient(#63A073, #29602f);
+//	background-size: 500px 466px;
+	color: #fff;
+	padding-top: 98px;
+}
+.pick-club{
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	display: block;
+	overflow: hidden;
+}

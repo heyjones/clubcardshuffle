@@ -1,0 +1,56 @@
+<div id="card" class="modal fade">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Club Name</h4>
+			</div>
+			<div class="modal-body">
+				<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Barcode_EAN8.svg/800px-Barcode_EAN8.svg.png" class="img-responsive" style="margin: 10px 0 30px 0;">
+				<div class="row">
+					<div class="col-xs-3">
+						<button type="button" class="btn btn-success btn-block"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+					</div>
+					<div class="col-xs-6">
+						<button type="button" class="btn btn-default btn-block">Shuffle!</button>
+					</div>
+					<div class="col-xs-3">
+						<button type="button" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-thumbs-down"></i></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<h2>Find A Club Card</h2>
+
+<div class="row">
+	<div class="col-sm-4" style="position: relative;">
+		<input type="text" placeholder="ex: Best Buy" class="form-control input-lg">
+		<button class="btn btn-link btn-lg" style="position: absolute; right: 15px; top: 1px;"><i class="glyphicon glyphicon-search"></i></button>
+		<h3>Can't Find Your Club?</h3>
+		<p>Send us a photo of the barcode on your Club Card and we'll add it for you!</p>
+		<form class="form" role="form">
+			<div class="row">
+				<div class="col-sm-8">
+					<input type="file" class="form-control">
+				</div>
+				<div class="col-sm-4">
+					<button class="btn btn-primary btn-block">Upload</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="col-sm-8">
+		<% @clubs.each do |club| %>
+			<div class="col-sm-4">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#card"><%= club.name %></a>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

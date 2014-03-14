@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_action :set_club, only: [:show, :edit, :update, :destroy, :shuffle]
 
   # GET /clubs
   # GET /clubs.json
@@ -25,7 +25,6 @@ class ClubsController < ApplicationController
   # POST /clubs.json
   def create
     @club = Club.new(club_params)
-
     respond_to do |format|
       if @club.save
         format.html { redirect_to @club, notice: 'Club was successfully created.' }
@@ -58,6 +57,12 @@ class ClubsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to clubs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def shuffle
+    respond_to do |format|
+  		format.json { render json: @club.cards.limit(1).order('RANDOM()') }
     end
   end
 

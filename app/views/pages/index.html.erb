@@ -3,19 +3,19 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Club Name</h4>
+				<h4 id="modal-club-name" class="modal-title">Club Name</h4>
 			</div>
 			<div class="modal-body">
-				<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Barcode_EAN8.svg/800px-Barcode_EAN8.svg.png" class="img-responsive" style="margin: 10px 0 30px 0;">
+				<p id="modal-card-number">0000000000</p>
 				<div class="row">
 					<div class="col-xs-3">
-						<button type="button" class="btn btn-success btn-block"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+						<button type="button" id="modal-card-good" class="btn btn-success btn-block" data-id="0"><i class="glyphicon glyphicon-thumbs-up"></i></button>
 					</div>
 					<div class="col-xs-6">
-						<button type="button" class="btn btn-default btn-block">Shuffle!</button>
+						<button type="button" id="modal-club-shuffle" class="btn btn-default btn-block" data-id="0">Shuffle!</button>
 					</div>
 					<div class="col-xs-3">
-						<button type="button" class="btn btn-danger btn-block"><i class="glyphicon glyphicon-thumbs-down"></i></button>
+						<button type="button" id="modal-card-bad" class="btn btn-danger btn-block" data-id="0"><i class="glyphicon glyphicon-thumbs-down"></i></button>
 					</div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 			<div class="col-sm-4">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#card"><%= club.name %></a>
+						<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#card" data-id="<%= club.id %>" data-name="<%= club.name %>"><%= club.name %></a>
 					</div>
 				</div>
 			</div>

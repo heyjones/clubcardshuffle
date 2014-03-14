@@ -3,6 +3,7 @@ ClubcardshuffleCom::Application.routes.draw do
   resources :clubs do |club|
   	resources :cards, only: [:index]
   end
+  get 'clubs/:id/shuffle' => 'clubs#shuffle', as: :shuffle
   resources :cards, only: [:new, :create, :show, :edit, :update, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

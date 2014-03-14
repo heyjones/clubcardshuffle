@@ -24,7 +24,20 @@ $(document).ready(function(){
 		$(this).css('text-indent', $(this).width());
 	});
 	$('.pick-club').click(function(){
-		
+		$('#modal-club-name').text($(this).data('name'));
+		$('#modal-club-shuffle').attr('data-id', $(this).data('id'));
+		$('#modal-club-shuffle').click();
+	});
+
+	$('#modal-club-shuffle').click(function(){
+		shuffle();
 	});
 
 });
+
+var shuffle = function(){
+	$.getJSON('/clubs/1/shuffle.json', function(data){
+		console.log(data[0].number);
+		$('#modal-card-number').text(data[0].number);
+	});
+}

@@ -25,16 +25,21 @@ class CardsController < ApplicationController
   # POST /cards.json
   def create
     @card = Card.new(card_params)
-
     respond_to do |format|
-      if @card.save
-        format.html { redirect_to @card, notice: 'Card was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @card }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @card.errors, status: :unprocessable_entity }
-      end
-    end
+	    if @card.number =~ Regexp.new(@card.club.regex)
+	      if @card.save
+	        format.html { redirect_to @card, notice: 'Card was successfully created.' }
+	        format.json { render action: 'show', status: :created, location: @card }
+	      else
+	        format.html { render action: 'new' }
+	        format.json { render json: @card.errors, status: :unprocessable_entity }
+	      end
+		else
+			@card.errors.add(:number, 'Not valid (ex: ' + @card.club.regex)
+	    	format.html { render action: 'new' }
+			format.json { render json: @card.errors, status: :unprocessable_entity }
+	    end
+	end
   end
 
   # PATCH/PUT /cards/1
@@ -71,4 +76,11 @@ class CardsController < ApplicationController
     def card_params
       params.require(:card).permit(:club_id, :number)
     end
+
+	def valid_number?(number)
+		unless @card.number =~ Regexp.new(@card.club.regex)
+			@card.errors.add(:number, 'The number you provided does not match the pattern (ex: ' + @card.club.regex)
+		end
+	end
+
 end

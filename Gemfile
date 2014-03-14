@@ -56,3 +56,4 @@ gem 'paperclip' # https://github.com/thoughtbot/paperclip
 gem 'barby' # https://github.com/toretore/barby
 gem 'has_barcode' # https://github.com/dpickett/has_barcode
 gem 'jquery-turbolinks' # https://github.com/kossnocorp/jquery.turbolinks
+gem 'aws-sdk' # https://github.com/aws/aws-sdk-ruby

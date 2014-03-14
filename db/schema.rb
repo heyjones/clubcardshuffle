@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312220809) do
+ActiveRecord::Schema.define(version: 20140314175744) do
 
   create_table "cards", force: true do |t|
     t.integer  "club_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140312220809) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+    t.string   "example"
   end
 
 end

@@ -3,8 +3,14 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use sqlite3/postgresql as the database for Active Record
+group :development do
+	gem 'sqlite3'
+end
+group :production do
+	gem 'pg'
+	gem 'activerecord-postgresql-adapter'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,4 +55,3 @@ gem 'paperclip' # https://github.com/thoughtbot/paperclip
 gem 'barby' # https://github.com/toretore/barby
 gem 'has_barcode' # https://github.com/dpickett/has_barcode
 gem 'jquery-turbolinks' # https://github.com/kossnocorp/jquery.turbolinks
-gem 'pg' # 

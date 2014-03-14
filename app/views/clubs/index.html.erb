@@ -11,7 +11,7 @@
 		<% @clubs.each do |club| %>
 			<tr>
 				<td>
-					<%= image_tag club.logo.url(:thumb), :style => 'margin-right: 5px; width: 18px;' unless club.logo.nil? %>
+					<%= image_tag club.logo.url(:thumb), :style => 'margin-right: 5px; width: 18px;' %>
 					<%= link_to club.name, edit_club_path(club) %>
 				</td>
 				<td><%= club.example %></td>

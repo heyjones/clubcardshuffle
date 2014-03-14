@@ -26,31 +26,29 @@
 <h2>Find A Club Card</h2>
 
 <div class="row">
-	<div class="col-sm-4" style="position: relative;">
-		<input type="text" placeholder="ex: Best Buy" class="form-control input-lg">
-		<button class="btn btn-link btn-lg" style="position: absolute; right: 15px; top: 1px;"><i class="glyphicon glyphicon-search"></i></button>
-		<h3>Can't Find Your Club?</h3>
+	<div class="col-sm-4">
+		<div style="position: relative;">
+			<input id="search" type="text" placeholder="ex: Best Buy" class="form-control input-lg">
+			<button id="search-button" class="btn btn-link btn-lg" style="position: absolute; right: 0; bottom: 0;"><i class="glyphicon glyphicon-search"></i></button>
+		</div>
+		<h3>Can't Find A Card?</h3>
 		<p>Send us a photo of the barcode on your Club Card and we'll add it for you!</p>
-		<form class="form" role="form">
-			<div class="row">
-				<div class="col-sm-8">
-					<input type="file" class="form-control">
-				</div>
-				<div class="col-sm-4">
-					<button class="btn btn-primary btn-block">Upload</button>
-				</div>
-			</div>
+		<form class="form" role="form" style="position: relative;">
+			<input type="file" class="form-control input-lg">
+			<button class="btn btn-link btn-lg" style="position: absolute; right: 0; bottom: 0;">Send</button>
 		</form>
 	</div>
 	<div class="col-sm-8">
-		<% @clubs.each do |club| %>
-			<div class="col-sm-4">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#card" data-id="<%= club.id %>" data-name="<%= club.name %>"><%= club.name %></a>
+		<div id="clubs" class="row">
+			<% @clubs.each do |club| %>
+				<div data-club="<%= club.name.downcase %>" class="col-sm-4 club">
+					<div class="panel panel-default pick-panel">
+						<div class="panel-body">
+							<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#card" data-id="<%= club.id %>" data-name="<%= club.name %>"><%= club.name %></a>
+						</div>
 					</div>
 				</div>
-			</div>
-		<% end %>
+			<% end %>
+		</div>
 	</div>
 </div>

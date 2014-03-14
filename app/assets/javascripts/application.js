@@ -18,6 +18,15 @@
 
 $(document).ready(function(){
 
+	$('#search').keyup(function(){
+		val = $(this).val().toLowerCase();
+		search(val);
+	});
+	$('#search-button').click(function(){
+		val = $('#search').val().toLowerCase();
+		search();
+	});
+
 	$('.pick-club').each(function(){
 		$(this).height($(this).width());
 		$(this).css('line-height', $(this).height());
@@ -34,6 +43,15 @@ $(document).ready(function(){
 	});
 
 });
+
+var search = function(val){
+	if(val.length > 0){
+		$('.club').hide();
+		$('.club').filter('[data-club*="'+val+'"]').show();
+	}else{
+		$('.club').show();
+	}
+}
 
 var shuffle = function(){
 	$.getJSON('/clubs/1/shuffle.json', function(data){

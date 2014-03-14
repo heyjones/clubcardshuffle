@@ -13,7 +13,7 @@
 
 	<div class="form-group">
 		<%= f.label :club_id %>
-		<%= collection_select(:card, :club_id, Club.all, :id, :name, { :prompt => '' }, { :class => 'form-control input-lg' }) %>
+		<%= collection_select(:card, :club_id, Club.all.order(:name), :id, :name, { :prompt => '' }, { :class => 'form-control input-lg' }) %>
 	</div>
 	<div class="form-group">
 		<%= f.label :number %>

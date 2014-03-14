@@ -1,26 +1,33 @@
 <%= form_for(@club, :html => {:multipart => true}) do |f| %>
-  <% if @club.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
 
-      <ul>
-      <% @club.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% if @club.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@club.errors.count, "error") %> prohibited this club from being saved:</h2>
+			<ul>
+				<% @club.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :regex %><br>
-    <%= f.text_field :regex %>
-  </div>
-  <%= f.file_field :logo %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, :class => 'form-control input-lg' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :example %>
+		<%= f.text_field :example, :class => 'form-control input-lg' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :regex %>
+		<%= f.text_field :regex, :class => 'form-control input-lg' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :logo %>
+		<%= f.file_field :logo, :class => 'form-control input-lg' %>
+	</div>
+	<%= f.submit 'Save', :class => 'btn btn-primary btn-lg' %>
+	<%= link_to 'Cancel', clubs_path, :class => 'btn btn-link btn-lg' %>
+
 <% end %>

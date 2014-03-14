@@ -1,29 +1,23 @@
-<h1>Listing clubs</h1>
+<h1>Clubs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Regex</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @clubs.each do |club| %>
-      <tr>
-        <td><%= club.name %></td>
-        <td><%= club.regex %></td>
-        <td><%= link_to 'Show', club %></td>
-        <td><%= link_to 'Edit', edit_club_path(club) %></td>
-        <td><%= link_to 'Destroy', club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Club</th>
+			<th>Example</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @clubs.each do |club| %>
+			<tr>
+				<td>
+					<%= image_tag club.logo.url(:thumb), :style => 'margin-right: 5px; width: 18px;' %>
+					<%= link_to club.name, edit_club_path(club) %>
+				</td>
+				<td><%= club.example %></td>
+			</tr>
+		<% end %>
+	</tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Club', new_club_path %>
+<%= link_to 'New Club', new_club_path, :class => 'btn btn-primary' %>

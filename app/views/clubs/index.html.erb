@@ -5,6 +5,7 @@
 		<tr>
 			<th>Club</th>
 			<th>Example</th>
+			<th>Cards</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -15,6 +16,7 @@
 					<%= link_to club.name, edit_club_path(club) %>
 				</td>
 				<td><%= club.example %></td>
+				<td><%= club.cards.count %></td>
 			</tr>
 		<% end %>
 	</tbody>

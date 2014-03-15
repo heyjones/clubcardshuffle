@@ -18,6 +18,8 @@
 
 $(document).ready(function(){
 
+	square();
+
 	$('#search').keyup(function(){
 		val = $(this).val().toLowerCase();
 		search(val);
@@ -27,11 +29,6 @@ $(document).ready(function(){
 		search();
 	});
 
-	$('.pick-club').each(function(){
-		$(this).height($(this).width());
-		$(this).css('line-height', $(this).height());
-		$(this).css('text-indent', $(this).width());
-	});
 	$('.pick-club').click(function(){
 		$('#modal-club-name').text($(this).data('name'));
 		$('#modal-club-shuffle').attr('data-id', $(this).data('id'));
@@ -43,6 +40,18 @@ $(document).ready(function(){
 	});
 
 });
+
+$(window).resize(function(){
+	square();
+});
+
+var square = function(){
+	$('.pick-club').each(function(){
+		$(this).height($(this).width());
+		$(this).css('line-height', $(this).height());
+		$(this).css('text-indent', $(this).width());
+	});
+}
 
 var search = function(val){
 	if(val.length > 0){

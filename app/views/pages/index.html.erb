@@ -1,27 +1,4 @@
-<div id="card" class="modal fade">
-	<div class="modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 id="modal-club-name" class="modal-title">Club Name</h4>
-			</div>
-			<div class="modal-body">
-				<p id="modal-card-number">0000000000</p>
-				<div class="row">
-					<div class="col-xs-3">
-						<button type="button" id="modal-card-good" class="btn btn-success btn-block" data-id="0"><i class="glyphicon glyphicon-thumbs-up"></i></button>
-					</div>
-					<div class="col-xs-6">
-						<button type="button" id="modal-club-shuffle" class="btn btn-default btn-block" data-id="0">Shuffle!</button>
-					</div>
-					<div class="col-xs-3">
-						<button type="button" id="modal-card-bad" class="btn btn-danger btn-block" data-id="0"><i class="glyphicon glyphicon-thumbs-down"></i></button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<%= render "shuffle" %>
 
 <h2>Find A Club Card</h2>
 
@@ -30,6 +7,7 @@
 
 		<div style="margin-bottom: 30px; position: relative;">
 			<input id="search" type="text" placeholder="ex: Best Buy" class="form-control input-lg">
+			<button id="search-clear" class="btn btn-link btn-lg" style="position: absolute; right: 30px; bottom: 0;"><i class="glyphicon glyphicon-remove-circle"></i></button>
 			<button id="search-button" class="btn btn-link btn-lg" style="position: absolute; right: 0; bottom: 0;"><i class="glyphicon glyphicon-search"></i></button>
 		</div>
 
@@ -41,7 +19,7 @@
 				<div data-club="<%= club.name.downcase %>" class="col-sm-4 col-xs-6 club">
 					<div class="panel panel-default pick-panel">
 						<div class="panel-body">
-							<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#card" data-id="<%= club.id %>" data-name="<%= club.name %>"><%= club.name %></a>
+							<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#shuffle" data-id="<%= club.id %>" data-name="<%= club.name %>"><%= club.name %></a>
 						</div>
 					</div>
 				</div>

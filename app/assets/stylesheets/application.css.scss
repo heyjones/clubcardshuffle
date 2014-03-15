@@ -12,10 +12,29 @@
  *= require_self
  *= require_tree .
  */
+.btn-circle{
+	border-radius: 50%;
+	text-align: center;
+}
 .jumbotron{
 	background-image: radial-gradient(#63A073, #29602f);
 	color: #fff;
 }
+.modal-dialog{
+	height: 100%;
+	margin: 0;
+	width: 100%;
+}
+	.modal-content{
+		background-color: rgba(255,255,255,0.95);
+		border: none;
+		border-radius: 0;
+		height: 100%;
+	}
+		.modal-body{
+			margin: 0 auto;
+			max-width: 360px;
+		}
 .pick-club{
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -27,3 +46,27 @@
 .pick-panel:hover{
     border-color: #428bca;
 }
+
+#search-clear{
+	color: #ccc;
+	display: none;
+}
+
+#shuffle-barcode{
+	height: auto;
+	width: 100%;
+}
+#shuffle-number{
+	font-size: 32px;
+	text-align: center;
+}
+
+footer{
+	border-top: solid 1px #ddd;
+	color: #ddd;
+	margin-top: 60px;
+	padding: 60px 0;
+}
+	footer a, footer a:hover{
+		color: #ddd;
+	}

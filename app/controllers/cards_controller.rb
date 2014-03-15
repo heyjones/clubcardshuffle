@@ -10,6 +10,11 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.json
   def show
+  	respond_to do |format|
+  		format.html
+  		format.json
+  		format.svg { render :inline => @card.barcode_data.html_safe }
+  	end
   end
 
   # GET /cards/new

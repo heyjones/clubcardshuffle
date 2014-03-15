@@ -18,32 +18,41 @@
 
 $(document).ready(function(){
 
+	btnCircle();
 	square();
 
 	$('#search').keyup(function(){
 		val = $(this).val().toLowerCase();
 		search(val);
 	});
+	$('#search-clear').click(function(){
+		$('#search').val('');
+		search('');
+	});
 	$('#search-button').click(function(){
 		val = $('#search').val().toLowerCase();
-		search();
+		search(val);
 	});
 
 	$('.pick-club').click(function(){
-		$('#modal-club-name').text($(this).data('name'));
-		$('#modal-club-shuffle').attr('data-id', $(this).data('id'));
-		$('#modal-club-shuffle').click();
+		shuffle($(this).data('id'));
 	});
-
-	$('#modal-club-shuffle').click(function(){
-		shuffle();
+	$('#shuffle-bad').click(function(){
 	});
 
 });
 
 $(window).resize(function(){
+	btnCircle();
 	square();
 });
+
+var btnCircle = function(){
+	$('.btn-circle').each(function(){
+		console.log($(this).height());
+		$(this).width($(this).height());
+	});
+}
 
 var square = function(){
 	$('.pick-club').each(function(){
@@ -55,16 +64,19 @@ var square = function(){
 
 var search = function(val){
 	if(val.length > 0){
+		$('#search-clear').show();
 		$('.club').hide();
 		$('.club').filter('[data-club*="'+val+'"]').show();
 	}else{
+		$('#search-clear').hide();
 		$('.club').show();
 	}
 }
 
-var shuffle = function(){
-	$.getJSON('/clubs/1/shuffle.json', function(data){
+var shuffle = function(id){
+	$.getJSON('/clubs/'+id+'/shuffle.json', function(data){
 		console.log(data[0].number);
-		$('#modal-card-number').text(data[0].number);
+		$('#shuffle-barcode').attr('src', '/cards/'+data[0].id+'.svg');
+		$('#shuffle-number').text(data[0].number);
 	});
 }

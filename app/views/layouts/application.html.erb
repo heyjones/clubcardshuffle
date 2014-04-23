@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Club Card Shuffle</title>
+		<title>Club Card Shuffle - Fight corporate profiling by anonymously sharing club card numbers online.</title>
 		<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 		<%= favicon_link_tag "logo.png", rel: "shortcut icon", type: "image/png" %>
 		<%= csrf_meta_tags %>
@@ -12,8 +12,8 @@
 		<div class="jumbotron">
 			<div class="container">
 				<h1>Club Card Shuffle</h1>
-				<p class="lead">Fight corporate profiling by sharing club card numbers anonymously</p>
-				<%= link_to 'Add A Card', new_card_path, :class => 'btn btn-success btn-lg' %>
+				<p class="lead">Fight corporate profiling by anonymously sharing club card numbers online.</p>
+				<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#new">Add A Card</button>
 			</div>
 		</div>
 		<div class="container">
@@ -25,5 +25,6 @@
 			</footer>
 		</div>
 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= render :partial => 'layouts/ga' if RAILS_ENV == 'production' %>
 	</body>
 </html>

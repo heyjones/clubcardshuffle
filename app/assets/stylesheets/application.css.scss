@@ -12,6 +12,14 @@
  *= require_self
  *= require_tree .
  */
+
+h1{
+	text-shadow: 0 5px 10px rgba(0,0,0,0.125);
+}
+.lead{
+	font-style: italic;
+}
+
 .btn-circle{
 	border-radius: 50%;
 	text-align: center;
@@ -19,6 +27,7 @@
 .jumbotron{
 	background-image: radial-gradient(#63A073, #29602f);
 	color: #fff;
+	text-align: center;
 }
 .modal-dialog{
 	height: 100%;
@@ -34,6 +43,8 @@
 		.modal-body{
 			margin: 0 auto;
 			max-width: 360px;
+			position: relative;
+			top: 50%;
 		}
 .pick-club{
 	background-position: center center;

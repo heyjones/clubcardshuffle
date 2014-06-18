@@ -27,4 +27,14 @@ ClubcardshuffleCom::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+	config.action_mailer.smtp_settings = {
+	  address: "smtp.mandrillapp.com",
+	  port: 587,
+	  domain: "localhost",
+	  authentication: "plain",
+	  enable_starttls_auto: true,
+	  user_name: "chris@heyjones.com",
+	  password: "R5tln3!9696"
+	}
+
 end

@@ -20,6 +20,22 @@ h1{
 	font-style: italic;
 }
 
+.input-file{
+    background: url('https://cdn4.iconfinder.com/data/icons/miu/22/device_camera_capture_photo_-64.png');
+    height: 46px;
+    margin: 15px auto;
+    opacity: 0.25;
+    overflow: hidden;
+	width: 64px;
+}
+	.input-file input{
+	    display: block!important;
+	    height: 46px!important;
+	    opacity: 0!important;
+	    overflow: hidden!important;
+	    width: 64px!important;
+	}
+
 .btn-circle{
 	border-radius: 50%;
 	text-align: center;
@@ -32,6 +48,7 @@ h1{
 .modal-dialog{
 	height: 100%;
 	margin: 0;
+	text-align: center;
 	width: 100%;
 }
 	.modal-content{
@@ -40,11 +57,17 @@ h1{
 		border-radius: 0;
 		height: 100%;
 	}
+		.modal-content:before{
+			content: '';
+			display: inline-block;
+			height: 100%;
+			vertical-align: middle;
+		}
 		.modal-body{
-			margin: 0 auto;
-			max-width: 360px;
-			position: relative;
-			top: 50%;
+			display: inline-block;
+			text-align: left;
+			vertical-align: middle;
+			width: 360px;
 		}
 .pick-club{
 	background-position: center center;
@@ -63,14 +86,29 @@ h1{
 	display: none;
 }
 
+.close{
+	font-size: 32px;
+	margin-bottom: 15px;
+	opacity: 1!important;
+}
 #shuffle-barcode{
 	height: auto;
+	margin-bottom: 15px;
 	width: 100%;
 }
 #shuffle-number{
 	font-size: 32px;
 	text-align: center;
 }
+#shuffle-bad, #shuffle-good{
+	font-size: 32px;
+}
+	#shuffle-bad{
+		color: #a94442!important;
+	}
+	#shuffle-good{
+		color: #3c763d!important;
+	}
 
 footer{
 	border-top: solid 1px #ddd;

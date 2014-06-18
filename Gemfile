@@ -58,3 +58,4 @@ gem 'has_barcode' # https://github.com/dpickett/has_barcode
 gem 'chunky_png' # https://github.com/wvanbergen/chunky_png
 gem 'jquery-turbolinks' # https://github.com/kossnocorp/jquery.turbolinks
 gem 'aws-sdk' # https://github.com/aws/aws-sdk-ruby
+gem 'mandrill-api' # https://bitbucket.org/mailchimp/mandrill-api-ruby/

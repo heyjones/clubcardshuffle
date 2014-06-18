@@ -1,7 +1,9 @@
-<div id="new" class="modal">
+<div id="new" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-body">
+
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
 				<%= form_for(@card) do |f| %>
 
@@ -29,6 +31,8 @@
 					</div>
 				
 				<% end %>
+
+				<%= render 'card' %>
 
 			</div>
 		</div>

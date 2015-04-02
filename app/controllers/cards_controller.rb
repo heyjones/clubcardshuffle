@@ -35,14 +35,17 @@ class CardsController < ApplicationController
 	      if @card.save
 	        format.html { redirect_to @card, notice: 'Card was successfully created.' }
 	        format.json { render action: 'show', status: :created, location: @card }
+	        format.js { }
 	      else
 	        format.html { render action: 'new' }
 	        format.json { render json: @card.errors, status: :unprocessable_entity }
+	        format.js { }
 	      end
 		else
 			@card.errors.add(:number, 'Not valid (ex: ' + @card.club.regex)
 	    	format.html { render action: 'new' }
 			format.json { render json: @card.errors, status: :unprocessable_entity }
+	        format.js { }
 	    end
 	end
   end

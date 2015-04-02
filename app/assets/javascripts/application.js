@@ -34,6 +34,13 @@ $(document).ready(function(){
 		search(val);
 	});
 
+	$('#card_club_id').on('change', function(){
+		$.getJSON('/clubs/'+this.value+'.json', function(data){
+			$('#card_number').attr('placeholder', data.example);
+			$('#card_number').attr('pattern', data.regex);
+		});
+	});
+
 	$('.pick-club').click(function(){
 		shuffle($(this).data('id'));
 	});

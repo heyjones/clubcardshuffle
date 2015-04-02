@@ -22,6 +22,7 @@
 					<div class="panel panel-default pick-panel">
 						<div class="panel-body">
 							<a id="<%= club.id %>" class="pick-club" style="background-image: url('<%= image_url club.logo.url(:thumb) %>');" data-toggle="modal" data-target="#shuffle" data-id="<%= club.id %>" data-name="<%= club.name %>"><%= club.name %></a>
+							<span class="badge"><%= club.cards.count.to_i %></span>
 						</div>
 					</div>
 				</div>

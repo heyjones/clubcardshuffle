@@ -69,6 +69,13 @@ h1{
 			vertical-align: middle;
 			width: 360px;
 		}
+
+.pick-panel{
+	position: relative;
+}
+	.pick-panel:hover{
+	    border-color: #428bca;
+	}
 .pick-club{
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -77,9 +84,10 @@ h1{
 	display: block;
 	overflow: hidden;
 }
-.pick-panel:hover{
-    border-color: #428bca;
-}
+	.pick-panel .badge{
+		position: absolute;
+		top: 15px;
+	}
 
 #search-clear{
 	color: #ccc;
